@@ -1,27 +1,14 @@
 <div align="center">
 
-<br/>
-
 <p align="center">
-  <img src="assets/ima_logo.png" height="44" alt="Tencent IMA" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/youtu_mark.png" height="44" alt="Tencent Youtu Lab" />
+  <img src="assets/hero_banner.png" width="100%" alt="OmniEVIE-4B — Evidence-Vector-Informed Embedding for Multi-modal Retrieval" />
 </p>
-
-# OmniEVIE-4B
-<sub><b>Evidence-Vector-Informed Embedding for Multi-modal Retrieval</b></sub>
-
-<br/>
 
 <p align="center">
   <a href="https://huggingface.co/tencent/OmniEVIE-4B"><img src="https://img.shields.io/badge/Hugging_Face-tencent%2FOmniEVIE--4B-F59E0B?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face"></a>
   <a href="https://github.com/Tencent/OmniEVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FOmniEVIE-1F2937?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="OmniEVIE_Technical_Report.pdf"><img src="https://img.shields.io/badge/Technical_Report-PDF-E11D48?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Technical Report"></a>
-  <a href="LICENSE.txt"><img src="https://img.shields.io/badge/License-Apache_2.0-0EA5E9?style=flat-square" alt="License"></a>
-  <img src="https://img.shields.io/badge/Backbone-Qwen3.5-10B981?style=flat-square" alt="Backbone">
 </p>
-
-<br/>
 
 <p align="center">
   <i>Evidence lives in the details — a single cell in a dense table, a fleeting gesture in a two-minute clip, a buried clause across pages.</i><br/>
