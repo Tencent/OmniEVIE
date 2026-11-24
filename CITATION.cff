@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: If you use OmniEVIE or OmniEVIE-4B, please cite our technical report.
+type: software
+title: "OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval"
+license: Apache-2.0
+repository-code: "https://github.com/Tencent/OmniEVIE"
+url: "https://huggingface.co/tencent/OmniEVIE-4B"
+date-released: "2026-11-19"
+authors:
+  - family-names: Wang
+    given-names: Zifei
+    email: zifeiwang@tencent.com
+    affiliation: "Tencent IMA Product Center"
+  - family-names: Wen
+    given-names: Wei
+    email: jawnrwen@tencent.com
+    affiliation: "Tencent Youtu Lab"
+  - family-names: Ji
+    given-names: Qiang
+    affiliation: "Tencent IMA Product Center"
+  - family-names: Zhang
+    given-names: Qian-Wen
+    affiliation: "Tencent IMA Product Center & Tencent Youtu Lab"
+  - family-names: Qiao
+    given-names: Ruizhi
+    affiliation: "Tencent Youtu Lab"
+  - family-names: Liu
+    given-names: He
+    affiliation: "Tencent IMA Product Center"
+  - family-names: Sun
+    given-names: Xing
+    affiliation: "Tencent Youtu Lab"
+  - family-names: Lin
+    given-names: Qiang
+    affiliation: "Tencent Youtu Lab"
+preferred-citation:
+  type: article
+  title: "OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval"
+  authors:
+    - family-names: Wang
+      given-names: Zifei
+    - family-names: Wen
+      given-names: Wei
+    - family-names: Ji
+      given-names: Qiang
+    - family-names: Zhang
+      given-names: Qian-Wen
+    - family-names: Qiao
+      given-names: Ruizhi
+    - family-names: Liu
+      given-names: He
+    - family-names: Sun
+      given-names: Xing
+    - family-names: Lin
+      given-names: Qiang
+  year: 2026
+  url: "https://github.com/Tencent/OmniEVIE"
