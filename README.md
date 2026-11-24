@@ -30,7 +30,7 @@ For complete methodology and analysis, read the [**Technical Report (PDF)**](Omn
   <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">
     <img src="assets/mmeb_leaderboard.png" width="96%" alt="MMEB-Leaderboard Top 1 (Excluding Audio) — OmniEVIE-4B"/>
   </a><br/>
-  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24). <b>OmniEVIE-4B (Full, 4.54B)</b> and <b>OmniEVIE-4B (Compressed, 4.54B)</b> rank <b>#1 and #2 among all non-audio models</b> (Audio-Overall = 0; #2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
+  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24, sorted by <code>Audio-Overall = 0</code>). <b>OmniEVIE-4B (Full, 4.54B)</b> and <b>OmniEVIE-4B (Compressed, 4.54B)</b> rank <b>#1 and #2 among all non-audio models</b> (#2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
 </p>
 
 ---
