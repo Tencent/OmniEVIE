@@ -8,6 +8,7 @@
   <a href="https://huggingface.co/tencent/OmniEVIE-4B"><img src="https://img.shields.io/badge/Hugging_Face-tencent%2FOmniEVIE--4B-F59E0B?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face"></a>
   <a href="https://github.com/Tencent/OmniEVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FOmniEVIE-1F2937?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="OmniEVIE_Technical_Report.pdf"><img src="https://img.shields.io/badge/Technical_Report-PDF-E11D48?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Technical Report"></a>
+  <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard"><img src="https://img.shields.io/badge/MMEB--Leaderboard-Top_1_(Non--Audio)-10B981?style=flat-square" alt="MMEB-Leaderboard Top 1 (Non-Audio)"></a>
 </p>
 
 <p align="center">
@@ -19,9 +20,18 @@
 
 ---
 
-**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**. Instead of flattening an entire page or video into one vector—or re-reading every recalled item with a heavy cross-encoder—it distills each document into at most **128 int8 vectors of dimension 64** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**), retrieving at million scale in **54.2 ms** on a single CPU thread while tracing every hit straight back to the page region or video second where the answer lives.
+**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)**—with `OmniEVIE-4B (Full)` at **60.68** and `OmniEVIE-4B (Compressed)` at **60.06** across 190 tasks (also **#1** in both Text `52.97` and Agent `54.14`). Instead of flattening an entire page or video into one vector—or re-reading every recalled item with a heavy cross-encoder—it distills each document into at most **128 int8 vectors of dimension 64** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**), retrieving at million scale in **54.2 ms** on a single CPU thread while tracing every hit straight back to the page region or video second where the answer lives.
 
 For complete methodology and analysis, read the [**Technical Report (PDF)**](OmniEVIE_Technical_Report.pdf).
+
+### MMEB-Leaderboard Top 1 (Excluding Audio)
+
+<p align="center">
+  <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">
+    <img src="assets/mmeb_leaderboard.png" width="96%" alt="MMEB-Leaderboard Top 1 (Excluding Audio) — OmniEVIE-4B"/>
+  </a><br/>
+  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24). <b>OmniEVIE-4B (Full, 4.54B)</b> and <b>OmniEVIE-4B (Compressed, 4.54B)</b> rank <b>#1 and #2 among all non-audio models</b> (Audio-Overall = 0; #2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
+</p>
 
 ---
 
