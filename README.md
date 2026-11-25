@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://huggingface.co/tencent/OmniEVIE-4B"><img src="https://img.shields.io/badge/Hugging_Face-tencent%2FOmniEVIE--4B-F59E0B?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face"></a>
   <a href="https://github.com/Tencent/OmniEVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FOmniEVIE-1F2937?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
-  <a href="OmniEVIE_Technical_Report.pdf"><img src="https://img.shields.io/badge/Technical_Report-PDF-E11D48?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Technical Report"></a>
+  <a href="https://arxiv.org/abs/2611.32203"><img src="https://img.shields.io/badge/arXiv-2611.32203-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
   <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard"><img src="https://img.shields.io/badge/MMEB--Leaderboard-Top_1_(Non--Audio)-10B981?style=flat-square" alt="MMEB-Leaderboard Top 1 (Non-Audio)"></a>
 </p>
 
@@ -22,7 +22,7 @@
 
 **OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)**—with `OmniEVIE-4B (Full)` at **60.68** and `OmniEVIE-4B (Compressed)` at **60.06** across 190 tasks (also **#1** in both Text `52.97` and Agent `54.14`). Instead of flattening an entire page or video into one vector—or re-reading every recalled item with a heavy cross-encoder—it distills each document into at most **128 int8 vectors of dimension 64** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**), retrieving at million scale in **54.2 ms** on a single CPU thread while tracing every hit straight back to the page region or video second where the answer lives.
 
-For complete methodology and analysis, read the [**Technical Report (PDF)**](OmniEVIE_Technical_Report.pdf).
+For complete methodology and analysis, read the [**Technical Report (arXiv:2611.32203)**](https://arxiv.org/abs/2611.32203).
 
 ### MMEB-Leaderboard Top 1 (Excluding Audio)
 
@@ -279,10 +279,13 @@ python -m pytest tests -q
 
 ```bibtex
 @article{wang2026omnievie,
-  title   = {OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval},
-  author  = {Wang, Zifei and Wen, Wei and Ji, Qiang and Zhang, Qian-Wen and Qiao, Ruizhi and Liu, He and Sun, Xing and Lin, Qiang},
-  year    = {2026},
-  url     = {https://github.com/Tencent/OmniEVIE}
+  title         = {OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval},
+  author        = {Wang, Zifei and Wen, Wei and Ji, Qiang and Zhang, Qian-Wen and Qiao, Ruizhi and Liu, He and Sun, Xing and Lin, Qiang},
+  journal       = {arXiv preprint arXiv:2611.32203},
+  year          = {2026},
+  eprint        = {2611.32203},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2611.32203}
 }
 ```
 

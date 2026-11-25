@@ -53,5 +53,9 @@ preferred-citation:
       given-names: Xing
     - family-names: Lin
       given-names: Qiang
+  journal: "arXiv preprint arXiv:2611.32203"
   year: 2026
-  url: "https://github.com/Tencent/OmniEVIE"
+  url: "https://arxiv.org/abs/2611.32203"
+  identifiers:
+    - type: other
+      value: "arXiv:2611.32203"

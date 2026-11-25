@@ -24,6 +24,7 @@ dependencies = [
 Homepage = "https://github.com/Tencent/OmniEVIE"
 Repository = "https://github.com/Tencent/OmniEVIE"
 Model = "https://huggingface.co/tencent/OmniEVIE-4B"
+Paper = "https://arxiv.org/abs/2611.32203"
 
 [project.optional-dependencies]
 eval = ["pyarrow>=18.0.0"]
