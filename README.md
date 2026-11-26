@@ -20,7 +20,7 @@
 
 ---
 
-**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)** across 190 tasks (also **#1** in both Text `52.97` and Agent `54.14`). From a single checkpoint, it bridges two retrieval modes: **Full** keeps every token at uncompressed **2048D** precision (**60.68**), while **Compressed** distills each page, image, or video via **Prefix-MRL** and spatio-temporal clustering (**ST-HAC**) into at most **128 × 64D `int8` vectors** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**) — holding **60.06** while sweeping a million records in **54.2 ms** on a single CPU thread and tracing every hit straight back to the page region or video second where the answer lives.
+**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)** across 190 tasks (also **#1** overall in Visual Doc `84.70`, Text `52.97`, and Agent `54.14`). From a single checkpoint, it bridges two retrieval modes: **Full** keeps every token at uncompressed **2048D** precision (**60.68**), while **Compressed** distills each page, image, or video via **Prefix-MRL** and spatio-temporal clustering (**ST-HAC**) into at most **128 × 64D `int8` vectors** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**) — holding **60.06** while sweeping a million records in **54.2 ms** on a single CPU thread and tracing every hit straight back to the page region or video second where the answer lives.
 
 For complete methodology and analysis, read the [**Technical Report (arXiv:2611.32203)**](https://arxiv.org/abs/2611.32203).
 
@@ -30,7 +30,7 @@ For complete methodology and analysis, read the [**Technical Report (arXiv:2611.
   <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">
     <img src="assets/mmeb_leaderboard.png" width="96%" alt="MMEB-Leaderboard Top 1 (Excluding Audio) — OmniEVIE-4B"/>
   </a><br/>
-  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24, sorted by <code>Audio-Overall = 0</code>). From the same 4.54B checkpoint, <b>OmniEVIE-4B (Full — uncompressed 2048D sequence)</b> and <b>OmniEVIE-4B (Compressed — ≤128 × 64D int8, 8.82 GiB / 1M)</b> rank <b>#1 and #2 among all non-audio models</b> (#2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
+  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24, sorted by <code>Audio-Overall = 0</code>). From the same 4.54B checkpoint, <b>OmniEVIE-4B (Full — uncompressed 2048D sequence)</b> and <b>OmniEVIE-4B (Compressed — ≤128 × 64D int8, 8.82 GiB / 1M)</b> rank <b>#1 and #2 among all non-audio models</b> (#2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading the Visual Doc (84.70), Text (52.97), and Agent (54.14) tracks.</i></sub>
 </p>
 
 ---
