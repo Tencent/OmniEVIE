@@ -20,7 +20,7 @@
 
 ---
 
-**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)**—with `OmniEVIE-4B (Full)` at **60.68** and `OmniEVIE-4B (Compressed)` at **60.06** across 190 tasks (also **#1** in both Text `52.97` and Agent `54.14`). Instead of flattening an entire page or video into one vector—or re-reading every recalled item with a heavy cross-encoder—it distills each document into at most **128 int8 vectors of dimension 64** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**), retrieving at million scale in **54.2 ms** on a single CPU thread while tracing every hit straight back to the page region or video second where the answer lives.
+**OmniEVIE-4B** is a 4.5B-parameter unified multi-modal, multi-vector retrieval model by **Tencent IMA Product Center** and **Tencent Youtu Lab**, ranking **#1 on the [MMEB-Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard) (excluding audio)** across 190 tasks (also **#1** in both Text `52.97` and Agent `54.14`). From a single checkpoint, it bridges two retrieval modes: **Full** keeps every token at uncompressed **2048D** precision (**60.68**), while **Compressed** distills each page, image, or video via **Prefix-MRL** and spatio-temporal clustering (**ST-HAC**) into at most **128 × 64D `int8` vectors** (`≤ 9,472 bytes/record`, **8.82 GiB per 1M records**) — holding **60.06** while sweeping a million records in **54.2 ms** on a single CPU thread and tracing every hit straight back to the page region or video second where the answer lives.
 
 For complete methodology and analysis, read the [**Technical Report (arXiv:2611.32203)**](https://arxiv.org/abs/2611.32203).
 
@@ -30,7 +30,7 @@ For complete methodology and analysis, read the [**Technical Report (arXiv:2611.
   <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">
     <img src="assets/mmeb_leaderboard.png" width="96%" alt="MMEB-Leaderboard Top 1 (Excluding Audio) — OmniEVIE-4B"/>
   </a><br/>
-  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24, sorted by <code>Audio-Overall = 0</code>). <b>OmniEVIE-4B (Full, 4.54B)</b> and <b>OmniEVIE-4B (Compressed, 4.54B)</b> rank <b>#1 and #2 among all non-audio models</b> (#2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
+  <sub><i>Official <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard">TIGER-Lab/MMEB-Leaderboard</a> snapshot (2026-11-24, sorted by <code>Audio-Overall = 0</code>). From the same 4.54B checkpoint, <b>OmniEVIE-4B (Full — uncompressed 2048D sequence)</b> and <b>OmniEVIE-4B (Compressed — ≤128 × 64D int8, 8.82 GiB / 1M)</b> rank <b>#1 and #2 among all non-audio models</b> (#2 and #4 overall across all 190 tasks), surpassing 9.4B baselines while leading both Text (52.97) and Agent (54.14) tracks.</i></sub>
 </p>
 
 ---
@@ -197,9 +197,9 @@ wrote 3 documents to index.pt
 | WeMM-Embedding-2B | 55.77 | 45.34 | 26.29 | 49.30 | 61.90 | 59.72 | 58.74 | 44.05 | 46.23 | 38.87 | 35.38 | 42.51 |
 | WeMM-Embedding-4B | 57.97 | 47.88 | 30.01 | 52.02 | 62.43 | 60.14 | 61.09 | 48.06 | 50.58 | 41.44 | **39.19** | 41.91 |
 | WeMM-Embedding-9B | 59.33 | 48.76 | **31.82** | 52.78 | 64.48 | 58.28 | 61.12 | 50.10 | 52.95 | **43.33** | 38.65 | 49.34 |
-| **OmniEVIE-4B (`K128×d64 int8`, 8-fr)** | 59.76 | 51.77 | 26.36 | 69.65 | 70.71 | 67.75 | 63.58 | 54.03 | **58.84** | 41.34 | 37.35 | 47.39 |
-| **OmniEVIE-4B (`K128×d64 int8`, 32-fr)** | 60.06 | 51.77 | 26.36 | 69.65 | 70.71 | 67.75 | 63.58 | 54.03 | **58.84** | 41.34 | 37.35 | 47.39 |
-| **OmniEVIE-4B (Full Sequence `d=2048`)** | **60.68** | **52.97** | 27.46 | **70.81** | **73.04** | **68.55** | **64.60** | **54.14** | 58.81 | 42.00 | 37.60 | **49.74** |
+| **OmniEVIE-4B (Compressed · `K128×d64 int8`, 8-fr)** | 59.76 | 51.77 | 26.36 | 69.65 | 70.71 | 67.75 | 63.58 | 54.03 | **58.84** | 41.34 | 37.35 | 47.39 |
+| **OmniEVIE-4B (Compressed · `K128×d64 int8`, 32-fr)** | 60.06 | 51.77 | 26.36 | 69.65 | 70.71 | 67.75 | 63.58 | 54.03 | **58.84** | 41.34 | 37.35 | 47.39 |
+| **OmniEVIE-4B (Full · full-sequence `d=2048`)** | **60.68** | **52.97** | 27.46 | **70.81** | **73.04** | **68.55** | **64.60** | **54.14** | 58.81 | 42.00 | 37.60 | **49.74** |
 
 ### MMEB-V2 (78 Tasks)
 
@@ -210,9 +210,9 @@ wrote 3 documents to index.pt
 | WeMM-Embedding-2B | 77.94 | 79.63 | 70.82 | 80.75 |
 | WeMM-Embedding-4B | 79.19 | 80.84 | 72.11 | 82.04 |
 | WeMM-Embedding-9B | **80.58** | **81.87** | **74.31** | 83.34 |
-| **OmniEVIE-4B (`K128×d64 int8`, 8-fr)** | 77.24 | 78.09 | 66.49 | 84.02 |
-| **OmniEVIE-4B (`K128×d64 int8`, 32-fr)** | 77.96 | 78.09 | 69.62 | 84.02 |
-| **OmniEVIE-4B (Full Sequence `d=2048`)** | 78.56 | 78.70 | 70.08 | **84.70** |
+| **OmniEVIE-4B (Compressed · `K128×d64 int8`, 8-fr)** | 77.24 | 78.09 | 66.49 | 84.02 |
+| **OmniEVIE-4B (Compressed · `K128×d64 int8`, 32-fr)** | 77.96 | 78.09 | 69.62 | 84.02 |
+| **OmniEVIE-4B (Full · full-sequence `d=2048`)** | 78.56 | 78.70 | 70.08 | **84.70** |
 
 ### ViDoRe V3 Visual Document Retrieval (8 Domains × 6 Languages, graded nDCG@10)
 
@@ -220,9 +220,9 @@ wrote 3 documents to index.pt
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Nemotron-ColEmbed-V2-8B | Full multi-vector | 63.76 | 79.35 | 70.05 | 67.72 | 51.50 | **66.92** | 56.81 | 67.39 | 50.31 |
 | Qwen3-VL-Embedding-8B | Single-vector | 59.00 | 75.86 | 64.47 | 60.88 | 44.70 | 58.88 | 47.78 | 66.05 | 48.31 |
-| **OmniEVIE-4B (Full Sequence `d=2048`)** | Prefix-MRL upper bound | **64.34** | **79.89** | **71.25** | **67.76** | **53.45** | 66.33 | **57.03** | **68.11** | **50.87** |
-| **OmniEVIE-4B (`K128×d64 int8`)** | 7.87 GiB / 1M pages | 62.96 | 78.73 | 69.94 | 66.01 | 52.52 | 64.68 | 55.08 | 66.47 | 50.28 |
-| **OmniEVIE-4B (`K32×d64 int8`)** | 2.15 GiB / 1M pages | 61.16 | 78.13 | 68.61 | 64.52 | 49.43 | 60.90 | 51.73 | 65.73 | 50.22 |
+| **OmniEVIE-4B (Full · full-sequence `d=2048`)** | Prefix-MRL upper bound | **64.34** | **79.89** | **71.25** | **67.76** | **53.45** | 66.33 | **57.03** | **68.11** | **50.87** |
+| **OmniEVIE-4B (Compressed · `K128×d64 int8`)** | 7.87 GiB / 1M pages | 62.96 | 78.73 | 69.94 | 66.01 | 52.52 | 64.68 | 55.08 | 66.47 | 50.28 |
+| **OmniEVIE-4B (Compressed · `K32×d64 int8`)** | 2.15 GiB / 1M pages | 61.16 | 78.13 | 68.61 | 64.52 | 49.43 | 60.90 | 51.73 | 65.73 | 50.22 |
 
 ### Single-Thread CPU Retrieval Latency (ms)
 
