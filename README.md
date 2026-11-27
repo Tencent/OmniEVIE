@@ -8,7 +8,9 @@
   <a href="https://huggingface.co/tencent/OmniEVIE-4B"><img src="https://img.shields.io/badge/Hugging_Face-tencent%2FOmniEVIE--4B-F59E0B?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face"></a>
   <a href="https://github.com/Tencent/OmniEVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FOmniEVIE-1F2937?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="https://arxiv.org/abs/2611.32203"><img src="https://img.shields.io/badge/arXiv-2611.32203-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
-  <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard"><img src="https://img.shields.io/badge/MMEB--Leaderboard-Top_1_(Non--Audio)-10B981?style=flat-square" alt="MMEB-Leaderboard Top 1 (Non-Audio)"></a>
+  <a href="https://huggingface.co/spaces/TIGER-Lab/MMEB-Leaderboard"><img src="https://img.shields.io/badge/MMEB--Leaderboard-Top_1_(Non--Audio)-10B981?style=flat-square" alt="MMEB-Leaderboard Top 1 (Non-Audio)"></a><br/>
+  <a href="https://paperswithcode.co/api/v1/papers/133834/leaderboard-badge-link?eval=50841"><img src="https://paperswithcode.co/api/v1/papers/133834/leaderboard-badge.svg?eval=50841&live=1" alt="Papers with Code: MMEB-v3"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/133834/leaderboard-badge-link?eval=50842"><img src="https://paperswithcode.co/api/v1/papers/133834/leaderboard-badge.svg?eval=50842&live=1" alt="Papers with Code: ViDoRe V3"></a>
 </p>
 
 <p align="center">
